@@ -1,59 +1,21 @@
-import turtle
+from pynput.keyboard import Key, Controller
+import time
 
+keyboard = Controller()
 
-t = turtle.Turtle()
-draw = turtle.Turtle()
-screen = turtle.Screen()
+time.sleep(1)
+print('[*] Start!')
 
-t.shape("turtle")
-t.speed(0)
-# t.getscreen()
-screen.bgcolor("white")
-t.color("white")
-t.penup()
-t.goto(-300,-300)
-# draw.goto(-300,-305)
-# screen.screensize(1024,480)
+def press_space():
+    print('Space')
+    keyboard.press(Key.space)
+    keyboard.release(Key.space)
 
+press_space()
+print('[*] 3, 2, 1')
+time.sleep(2.3 )
 
-def turn_left():
-    t.left(2)
-def turn_right():
-    t.right(2)
-def turn_forward():
-    t.forward(2)
-def turn_backward():
-    t.backward(2)
-def fire():  #발사 함수
-    ang = t.heading()
-    while t.ycor() > 0:
-        t.forward(15)
-        t.right(5)
+for i in range(10):
+    press_space()
 
-    # d = t.distance(target, 0)
-    # t.sety(random.randint(10, 100))
-    # if d < 25:
-    #     t.color("blue")
-    #     t.write("Good!", False, "center", ("", 15))
-    # else:
-    #     t.color("red")
-    #     t.write("Bad!", False, "center", ("", 15))
-    t.color("black")
-    t.goto(-200, 10)
-    t.setheading(ang)
-t.goto(-300, 0)
-t.down()
-t.goto(300, 0)
-
-screen.onkeypress(turn_left, "Left")
-screen.onkeypress(turn_right, "Right")
-screen.onkeypress(turn_forward,"Up")
-screen.onkeypress(turn_forward,"Down")
-screen.onkeypress(fire, "space")
-
-dir("str")
-screen.listen()
-screen.mainloop()
-
-
-
+    time.sleep(0.54)
